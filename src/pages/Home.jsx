@@ -6,6 +6,7 @@ import SectionHeading from '../components/ui/SectionHeading'
 import Button from '../components/ui/Button'
 import Badge from '../components/ui/Badge'
 import SmartImage from '../components/ui/SmartImage'
+import HeroSlideshow from '../components/ui/HeroSlideshow'
 import { siteConfig } from '../data/siteConfig'
 import { featuredMenu } from '../data/menuData'
 import heroImage from '../assets/images/hero-illustration.png'
@@ -100,8 +101,10 @@ export default function Home() {
         path="/"
       />
 
-      {/* 1. Hero */}
+      {/* 1. Hero — photo slideshow on mobile; cream + illustration on desktop */}
       <section className="relative min-h-[85svh] overflow-hidden bg-hero md:min-h-[100svh]">
+        <HeroSlideshow className="md:hidden" />
+
         <div className="relative z-10 mx-auto flex min-h-[85svh] w-full max-w-6xl flex-col justify-center px-4 py-20 text-center md:min-h-[100svh] md:justify-end md:px-6 md:pb-28 md:pt-24 md:text-left lg:pb-32">
           <motion.div
             initial={{ opacity: 0, y: 32 }}
@@ -109,18 +112,28 @@ export default function Home() {
             transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
             className="mx-auto max-w-xl md:mx-0 md:mb-8"
           >
-            <h1 className="break-words font-display text-5xl font-medium tracking-tight text-primary sm:text-6xl md:text-7xl lg:text-8xl">
+            <h1 className="break-words font-display text-5xl font-medium tracking-tight text-background drop-shadow-sm sm:text-6xl md:text-7xl md:text-primary md:drop-shadow-none lg:text-8xl">
               {siteConfig.name}
             </h1>
-            <p className="mt-4 break-words font-sans text-base tracking-wide text-primary/80 md:text-lg">
+            <p className="mt-4 break-words font-sans text-base tracking-wide text-background/90 md:text-lg md:text-primary/80">
               {siteConfig.heroTagline}
             </p>
             <div className="mt-8 flex flex-wrap justify-center gap-3 md:justify-start">
               <Link to="/menu">
-                <Button variant="primary">View Menu</Button>
+                <Button variant="light" className="md:hidden">
+                  View Menu
+                </Button>
+                <Button variant="primary" className="hidden md:inline-flex">
+                  View Menu
+                </Button>
               </Link>
               <Link to="/reservations">
-                <Button variant="outline">Reserve a Table</Button>
+                <Button variant="outline-light" className="md:hidden">
+                  Reserve a Table
+                </Button>
+                <Button variant="outline" className="hidden md:inline-flex">
+                  Reserve a Table
+                </Button>
               </Link>
             </div>
           </motion.div>
