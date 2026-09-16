@@ -61,7 +61,12 @@ export const siteConfig = {
       order: {
         title: 'Order',
         description:
-          'Online ordering at wolly. is coming soon. Order dine-in or takeaway in person at Noordplein 1, Rotterdam.',
+          'Order takeaway from wolly. in Rotterdam — choose dishes online and pick up at Noordplein 1.',
+      },
+      takeaway: {
+        title: 'Take Away',
+        description:
+          'Order takeaway at wolly. Select food, enter your details, and pick up at Noordplein 1, Rotterdam.',
       },
       contact: {
         title: 'Contact',

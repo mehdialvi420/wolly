@@ -1,9 +1,12 @@
-import acaiBowl from '../assets/images/acai-bowl.jpg'
-import cinnamonBun from '../assets/images/cinnamon-bun.jpg'
-import matchaLatte from '../assets/images/matcha-latte.jpg'
-import pastramiSandwich from '../assets/images/pastrami-sandwich.jpg'
-import pistachioCroissant from '../assets/images/pistachio-croissant.jpg'
-import briocheKip from '../assets/images/brioche-krokante-kip.jpg'
+import smoothieBowl from '../assets/images/menu/smoothie-bowl.jpg'
+import croissant from '../assets/images/menu/croissant.jpg'
+import cinnamonRoll from '../assets/images/menu/cinnamon-roll.jpg'
+import matchaLatte from '../assets/images/menu/matcha-latte.jpg'
+import pastramiSandwich from '../assets/images/menu/pastrami-sandwich.jpg'
+import chickenSandwich from '../assets/images/menu/chicken-sandwich.jpg'
+import pancakes from '../assets/images/menu/pancakes.jpg'
+import frenchToast from '../assets/images/menu/french-toast.jpg'
+import oatmeal from '../assets/images/menu/oatmeal.jpg'
 
 /**
  * Menu data for wolly.
@@ -33,7 +36,7 @@ export const menuData = [
         description: 'White chocolate ganache',
         price: '€6.5',
         tags: ['veg'],
-        image: cinnamonBun,
+        image: cinnamonRoll,
         featured: true,
       },
       {
@@ -41,7 +44,7 @@ export const menuData = [
         description: 'Jam +€0.5',
         price: '€7',
         tags: ['veg'],
-        image: pistachioCroissant,
+        image: croissant,
         featured: true,
       },
       {
@@ -55,6 +58,7 @@ export const menuData = [
         description: 'Croissant-bread pudding, hangop yogurt, homemade jam',
         price: '€6',
         tags: ['veg'],
+        image: frenchToast,
       },
     ],
   },
@@ -66,7 +70,7 @@ export const menuData = [
         description: 'Mango & banana, seasonal fruits, granola, coconut flakes',
         price: 'TBC',
         tags: ['veg', 'vegan'],
-        image: acaiBowl,
+        image: smoothieBowl,
         featured: true,
       },
       {
@@ -75,6 +79,7 @@ export const menuData = [
           'Coconut milk, apple-ginger compote, pear, hangop yogurt, granola',
         price: 'TBC',
         tags: ['veg'],
+        image: oatmeal,
       },
       {
         name: 'Overnight Pistachio Oats',
@@ -82,6 +87,7 @@ export const menuData = [
           'Chia & oat, pistachio paste, coconut milk, white chocolate, honey',
         price: 'TBC',
         tags: ['veg'],
+        image: oatmeal,
       },
     ],
   },
@@ -93,6 +99,7 @@ export const menuData = [
         description: '3pc, butter & sweet syrup',
         price: '€10.5',
         tags: ['veg'],
+        image: pancakes,
       },
       {
         name: "Wolly's Eggs",
@@ -216,7 +223,7 @@ export const menuData = [
         description: 'Thigh, avocado cream, cole slaw',
         price: 'TBC',
         tags: [],
-        image: briocheKip,
+        image: chickenSandwich,
         featured: true,
       },
       {
@@ -617,3 +624,15 @@ export function categoryId(category) {
 export const featuredMenu = menuData
   .flatMap((group) => group.items)
   .filter((item) => item.featured)
+
+/** Flat list for takeaway ordering (excludes free items). */
+export const takeawayItems = menuData.flatMap((group) =>
+  group.items
+    .filter((item) => item.price && item.price !== 'Free')
+    .map((item) => ({
+      ...item,
+      id: `${group.category}::${item.name}`,
+      category: group.category,
+    })),
+)
+

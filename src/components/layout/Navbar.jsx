@@ -9,7 +9,7 @@ const navLinks = [
   { to: '/about', label: 'About' },
   { to: '/gallery', label: 'Gallery' },
   { to: '/reservations', label: 'Reservations' },
-  { to: '/order', label: 'Order' },
+  { to: '/takeaway', label: 'Take Away' },
   { to: '/contact', label: 'Contact' },
 ]
 

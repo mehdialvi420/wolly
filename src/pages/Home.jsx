@@ -10,7 +10,7 @@ import HeroSlideshow from '../components/ui/HeroSlideshow'
 import { siteConfig } from '../data/siteConfig'
 import { featuredMenu } from '../data/menuData'
 import heroImage from '../assets/images/hero-illustration.png'
-import aboutImage from '../assets/images/matcha-latte.jpg'
+import aboutImage from '../assets/images/about/ambiance-3.jpg'
 
 function InstagramIcon({ size = 22, className = '', ...props }) {
   return (
@@ -125,6 +125,14 @@ export default function Home() {
                 </Button>
                 <Button variant="primary" className="hidden md:inline-flex">
                   View Menu
+                </Button>
+              </Link>
+              <Link to="/takeaway">
+                <Button variant="secondary" className="md:hidden">
+                  Take Away
+                </Button>
+                <Button variant="secondary" className="hidden md:inline-flex">
+                  Take Away
                 </Button>
               </Link>
               <Link to="/reservations">
