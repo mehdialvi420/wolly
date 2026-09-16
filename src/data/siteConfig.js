@@ -56,7 +56,7 @@ export const siteConfig = {
       reservations: {
         title: 'Reservations',
         description:
-          'Table reservations at wolly. are coming soon. Contact us by phone, email or Instagram to book a spot in Rotterdam.',
+          'Book a table at wolly. in Rotterdam. Choose guests, date, and share your name, phone and email to request a reservation.',
       },
       order: {
         title: 'Order',
